@@ -96,6 +96,22 @@ const products = [
   },
 ];
 
+const favorites = [];
+
+app.get("/favorites", async (req, res) => {
+  await wait();
+
+  return res.json(favorites);
+});
+
+app.post("/favorites", async (req, res) => {
+  await wait();
+
+  favorites.push(res.body);
+
+  return res.sendStatus(204);
+});
+
 app.get("/products", async (req, res) => {
   await wait();
 
